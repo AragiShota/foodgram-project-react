@@ -8,9 +8,7 @@ volumes:
 services:
 
   frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
+    image: aragishota/frontend:latest
     volumes:
       - ../frontend/:/app/result_build/
   db:
@@ -20,9 +18,7 @@ services:
     env_file:
       - ../infra/.env
   web:
-#    build:
-#      context: ../backend/foodgram
-#      dockerfile: Dockerfile
+    image: aragishota/web:latest
     restart: always
     volumes:
       - static_value:/code/static/
