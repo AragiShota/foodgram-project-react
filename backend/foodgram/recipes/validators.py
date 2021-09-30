@@ -4,7 +4,7 @@ from rest_framework.serializers import ValidationError
 def validator_amount(value):
     if value < 0:
         raise ValidationError(
-            'Жадина. Нужно не меньше 0',
+            'Нужно не меньше 0',
         )
 
 
