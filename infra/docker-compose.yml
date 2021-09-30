@@ -20,7 +20,7 @@ services:
     env_file:
       - ../infra/.env
   web:
-    image: aragishota/web:latest
+    image: aragishota/web:v1.0
     restart: always
     volumes:
       - static_value:/code/static/
