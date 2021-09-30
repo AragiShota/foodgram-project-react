@@ -20,9 +20,9 @@ services:
     env_file:
       - ../infra/.env
   web:
-    build:
-      context: ../backend/foodgram
-      dockerfile: Dockerfile
+#    build:
+#      context: ../backend/foodgram
+#      dockerfile: Dockerfile
     restart: always
     volumes:
       - static_value:/code/static/
