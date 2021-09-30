@@ -8,7 +8,9 @@ volumes:
 services:
 
   frontend:
-    image: aragishota/frontend:latest
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
     volumes:
       - ../frontend/:/app/result_build/
   db:
