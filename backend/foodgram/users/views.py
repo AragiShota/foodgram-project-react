@@ -34,7 +34,7 @@ class UserViewSet(mixins.CreateModelMixin,
         return UserSerializer
 
     @action(detail=False, methods=['get'],
-            permission_classes=[IsAuthenticatedOrReadOnly])
+            permission_classes=[IsAuthenticated])
     def me(self, request):
         instance = request.user
         context = {'request': request}
