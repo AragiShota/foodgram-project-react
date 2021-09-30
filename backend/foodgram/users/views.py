@@ -34,7 +34,7 @@ class UserViewSet(mixins.CreateModelMixin,
         return UserSerializer
 
     @action(detail=False, methods=['get'],
-            permission_classes=[IsAuthenticated])
+            permission_classes=[IsAuthenticatedOrReadOnly])
     def me(self, request):
         instance = request.user
         context = {'request': request}
@@ -42,7 +42,7 @@ class UserViewSet(mixins.CreateModelMixin,
         return Response(serializer.data)
 
     @action(detail=False, methods=['post'],
-            permission_classes=[IsAuthenticatedOrReadOnly])
+            permission_classes=[IsAuthenticated])
     def set_password(self, request):
         instance = request.user
         context = {'request': request}
