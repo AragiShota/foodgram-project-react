@@ -64,7 +64,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         inputs = (', '.join(row) for row in rows)
 
         response = StreamingHttpResponse(inputs, content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="recipes.txt"'
+    #    response['Content-Disposition'] = 'attachment; filename="recipes.txt"'
         return response
 
 
