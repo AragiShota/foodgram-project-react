@@ -63,8 +63,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
                 for ingredient in res_queryset)
         inputs = (', '.join(row) for row in rows)
 
-        response = StreamingHttpResponse(inputs, content_type='text/csv')
-    #    response['Content-Disposition'] = 'attachment; filename="recipes.txt"'
+        response = StreamingHttpResponse(inputs, content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename={0}'.format('shop.txt')  # noqa
         return response
 
 
