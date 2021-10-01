@@ -26,19 +26,19 @@ class RecipeFilter(filters.FilterSet):
     def check_fav(self, queryset, name, value):
         user_id = self.request.user.id
         queryset = Recipe.objects.all()
-        if value is False:
-            queryset = queryset.exclude(favorites__user__id=user_id)
-        elif value is True:
+        if value:
             queryset = queryset.filter(favorites__user__id=user_id)
+        else:
+            queryset = queryset.exclude(favorites__user__id=user_id)
         return queryset
 
     def check_cart(self, queryset, name, value):
         user_id = self.request.user.id
         queryset = Recipe.objects.all()
-        if value is False:
-            queryset = queryset.exclude(carts__user__id=user_id)
-        elif value is True:
+        if value:
             queryset = queryset.filter(carts__user__id=user_id)
+        else:
+            queryset = queryset.exclude(carts__user__id=user_id)
         return queryset
 
 
