@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from django.http import StreamingHttpResponse
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, viewsets
@@ -63,7 +63,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
                 for ingredient in res_queryset)
         inputs = (', '.join(row) for row in rows)
 
-        response = StreamingHttpResponse(inputs, content_type='text/plain')
+        response = HttpResponse(inputs, content_type='text/plain')
         response['Content-Disposition'] = 'attachment; filename={0}'.format('shop.txt')  # noqa
         return response
 
