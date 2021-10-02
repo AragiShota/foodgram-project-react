@@ -72,7 +72,8 @@ web:
 --->
 
 web:
-  build: .
+  context: ../backend/foodgram
+  dockerfile: Dockerfile
 ```
 
 - собрать образ, запустить
@@ -89,6 +90,6 @@ web:
 
 ```sudo docker-compose exec web python manage.py createsuperuser```
 
-- собираем статические данные
+- собрать статику
 
 ```sudo docker-compose exec web python manage.py collectstatic --no-input```
