@@ -73,8 +73,9 @@ web:
 --->
 
 web:
-  context: ../backend/foodgram
-  dockerfile: Dockerfile
+  build:
+    context: ../backend/foodgram
+    dockerfile: Dockerfile
 ```
 
 - собрать образ, запустить
